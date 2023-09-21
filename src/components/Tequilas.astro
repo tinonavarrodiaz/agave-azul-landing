@@ -1,0 +1,62 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+import { sheets, tequilas } from '../translate/tequilas';
+const text = lang === 'es' ? sheets.es : sheets.en;
+---
+
+<section class="Tequilas">
+  <h2
+    class="text-center text-2xl md:text-[3.64vw] md:mb-[4.89vw] text-[#969696] mb-12"
+  >
+    {text.title}
+  </h2>
+  <div class="w-container-2 mx-auto md:grid grid-cols-3">
+    {
+      tequilas.map((item) => (
+        <div class="item mb-10 last:mb-0 md:flex flex-col justify-end md:mb-0">
+          <img
+            class="mb-[20px]"
+            src={`/img/${item.src}.png`}
+            alt={`Tequila ${item.name}`}
+          />
+          <h3 class="font-Kohinoor font-bold text-md uppercase text-center leading-4 text-[1.02em] tracking-wide text-text-gray mb-0 md:text-[1.5vw] md:leading-7">
+            Tequila <br />
+            {item.name}
+          </h3>
+          <div class="buttons-container">
+            <a href={`/${item.src}.pdf`} target="_blank" download>
+              <img
+                class="btn-ts"
+                src={`/img/${text.btn}.png`}
+                alt={item.name}
+              />
+            </a>
+            <a href={item.instagram} target="_blank">
+              <img class="btn-icon" src="/img/instagram.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="footer-tequila">
+    <div class="icon-container c-left">
+      <img
+        src="/img/ara-sello.svg"
+        alt="ARA Certification"
+        class="icon-cert as"
+      />
+      <img src="/img/k.svg" alt="kosher Certification" class="icon-cert k" />
+      <img src="/img/ara.svg" alt="Certifications" class="icon-cert ara" />
+    </div>
+    <div class="icon-container c-right">
+      <img src="/img/nom.svg" alt="NOM" class="icon-cert nom" />
+      <img src="/img/1424.svg" alt="1424" class="icon-cert num" />
+      <img src="/img/crt.svg" alt="crt" class="icon-cert crt" />
+    </div>
+  </div>
+</section>

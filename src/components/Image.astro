@@ -1,0 +1,26 @@
+---
+interface Props {
+  name: string;
+  ext: string;
+  className?: string;
+}
+const { name, ext, className } = Astro.props;
+---
+
+<picture class=`w-full ${className}`>
+  <source
+    srcset={`/img/${name}@2x.webp`}
+    type="image/webp"
+    media="(min-width: 1600px)"
+  />
+  <source srcset={`/img/${name}@2x.${ext}`} media="(min-width: 1600px)" />
+  <source
+    srcset={`/img/${name}.webp`}
+    type="image/webp"
+    media="(min-width: 768px)"
+  />
+  <source srcset={`/img/${name}.${ext}`} media="(min-width: 768px)" />
+  <source srcset={`/img/${name}@m.webp`} media="(max-width: 768px)" />
+  <source srcset={`/img/${name}@m.${ext}`} media="(max-width: 768px)" />
+  <img src={`/img/${name}@2x.${ext}`} alt={name} />
+</picture>

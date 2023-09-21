@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// @import "fonts/stylesheet.css";
+@import './trueno/style.css';
+// @import './Kohinoor/style.css';
+@import 'Kohinoor/stylesheet.css';
+@import 'hamburgers/dist/hamburgers.min.css';
+@import 'aos/dist/aos.css';
+
+@layer base {
+  body {
+    @apply w-screen max-w-[calc(100vw-var(--scrollbarWidth))] overflow-y-auto overflow-x-hidden font-trueno;
+  }
+}
+@layer components {
+  .hamburger {
+    @apply scale-75 translate-y-1 md:scale-100;
+    &:hover,
+    &.is-active {
+      @apply opacity-100;
+    }
+
+    &-inner,
+    &-inner::after,
+    &-inner::before {
+      @apply bg-header-text;
+    }
+
+    &.is-active {
+      .hamburger-inner,
+      .hamburger-inner::after,
+      .hamburger-inner::before {
+        @apply bg-header-text;
+      }
+    }
+  }
+  .main-menu {
+    @apply bg-bg text-header-text w-full absolute top-[100px] md:top-[140px] left-0 max-h-0 overflow-hidden transition-[max-height] duration-200 lg:static lg:flex lg:max-h-none;
+    a {
+      @apply leading-12 px-6 block;
+    }
+    &.is-active {
+      @apply max-h-[calc(3*3rem)];
+    }
+  }
+  .Under {
+    .grid-container {
+      @apply grid-cols-[1fr_28.125vw] gap-x-[5.2vw] md:h-[32.81vw] items-center;
+      .img {
+        @apply md:h-[inherit] md:w-full;
+        img,
+        picture {
+          @apply block md:w-full md:h-full object-cover object-right-bottom;
+        }
+      }
+      p {
+        @apply md:text-[1.3vw];
+      }
+      p.es {
+        @apply md:text-[1.2vw];
+      }
+    }
+  }
+  .Banner {
+    @apply w-container-2 mx-auto pt-[4em] pb-[5em] md:pt-[6.25vw] md:pb-[10vw] md:grid grid-cols-3 gap-x-[2.083vw];
+    img,
+    picture {
+      @apply w-full block mb-8 md:mb-0;
+      &:last-of-type,
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+  }
+
+  .Tequilas {
+    @apply pb-[30px] md:pb-[0.8645vw];
+    background: linear-gradient(transparent 40%, #efefef 40%);
+    img,
+    a {
+      @apply block;
+    }
+    .item {
+      &:first-child,
+      &:last-child {
+        img {
+          @apply w-[33%] h-auto;
+        }
+      }
+    }
+    .item img {
+      @apply max-w-[70%] h-auto mx-auto;
+    }
+  }
+  .footer-tequila {
+    @apply h-[30px]  mt-[100px] px-4 flex justify-between md:h-[3.90vw] md:px-[6.25vw] md:mt-[10.41666666666667vw] md:mb-[2.8645vw];
+    .icon-container {
+      @apply flex items-center;
+    }
+    .icon-cert {
+      @apply block w-auto h-[100%];
+    }
+    .k {
+      @apply h-[85%] ml-2 md:ml-[1.822916666666667vw];
+    }
+    .ara {
+      @apply h-[50%] ml-5 md:ml-[3.90vw];
+    }
+    .num,
+    .crt {
+      @apply h-[60%] ml-2 md:ml-[1.822916666666667vw];
+    }
+  }
+  .buttons-container {
+    @apply h-[40px] mt-8 md:mt-[1.71875vw] md:h-[3.063916666666667vw] w-[180px] md:w-[12.985vw] flex justify-between items-center mx-auto;
+
+    .btn-ts,
+    .btn-icon,
+    a {
+      height: 100% !important;
+      width: auto !important;
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      transition: background 0.3s;
+    }
+    .btn-icon a:last-of-type,
+    a:last-child {
+      height: 75% !important;
+    }
+    a:first-child,
+    a:first-of-type {
+      &:hover {
+        background-color: rgba(#000, 0.05);
+      }
+    }
+  }
+}

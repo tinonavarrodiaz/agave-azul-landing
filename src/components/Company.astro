@@ -1,0 +1,17 @@
+---
+interface Props {
+  lang?: string;
+}
+const { lang } = Astro.props;
+
+import { text } from '../translate/company';
+const company = lang === 'es' ? text.es : text.en;
+---
+
+<div class="company bg-[#EFECE3] pt-9 pb-9 md:pt-[7.1875vw] md:pb-[7.5vw]">
+  <p
+    class="w-container-2 mx-auto text-center font-light leading-[1.5em] md:text-[2vw] text-[#666]"
+  >
+    {company.text}
+  </p>
+</div>

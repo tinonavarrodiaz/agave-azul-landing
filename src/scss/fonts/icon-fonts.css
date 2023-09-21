@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "agave";
+  src:url("fonts/agave.eot");
+  src:url("fonts/agave.eot?#iefix") format("embedded-opentype"),
+    url("fonts/agave.woff") format("woff"),
+    url("fonts/agave.ttf") format("truetype"),
+    url("fonts/agave.svg#agave") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:after {
+  font-family: "agave" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:after,
+[class*=" icon-"]:after {
+  font-family: "agave" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  top: 2px;
+}
+
+.icon-caret-down:after {
+  content: "\61";
+}

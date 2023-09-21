@@ -1,0 +1,49 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+import { headerLang } from '../translate/header';
+const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
+---
+
+<header class="bg-bg relative">
+  <div
+    class="flex justify-between items-center h-[100px] md:h-[140px] lg:h-header-height w-container mx-auto"
+  >
+    <img
+      src="/logo.svg"
+      alt="Logo Destiladora Agave Azul"
+      class="w-[60%] max-w-[200px] md:w-[40%] md:max-w-none lg:w-logo"
+    />
+    <nav>
+      <button class={`hamburger hamburger--squeeze lg:hidden `} type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"> </span>
+        </span>
+      </button>
+      <ul id="main-menu" class="main-menu">
+        {
+          menu.map((item) => (
+            <li>
+              <a href={item.url}>{item.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggleBtn = document.querySelector('.hamburger');
+  let context = 1920;
+  let alto = 190;
+  let res = (alto * 100) / context;
+  console.log(res);
+  // 200*100/1920
+  toggleBtn?.addEventListener('click', (e) => {
+    toggleBtn.classList.toggle('is-active');
+    document.getElementById('main-menu')?.classList.toggle('is-active');
+  });
+</script>

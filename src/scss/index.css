@@ -1,0 +1,36 @@
+@import "./trueno/style.css";
+@import 'hamburgers/dist/hamburgers.min.css';
+@import 'aos/dist/aos.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  body {
+    @apply w-screen max-w-[calc(100vw-var(--scrollbarWidth))] overflow-y-auto overflow-x-hidden font-trueno;
+  }
+}
+@layer components {
+  .hamburger {
+    @apply scale-75 translate-y-1 md:scale-100;
+  }
+  .hamburger:hover, .hamburger.is-active {
+    @apply opacity-100;
+  }
+  .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
+    @apply bg-header-text;
+  }
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::after,
+  .hamburger.is-active .hamburger-inner::before {
+    @apply bg-header-text;
+  }
+  .main-menu {
+    @apply bg-bg text-header-text w-full absolute top-[100px] md:top-[140px] left-0 max-h-0 overflow-hidden transition-[max-height] duration-200 lg:static lg:flex lg:max-h-none;
+  }
+  .main-menu a {
+    @apply leading-12 px-6 block;
+  }
+  .main-menu.is-active {
+    @apply max-h-[calc(3*3rem)];
+  }
+}/*# sourceMappingURL=index.css.map */

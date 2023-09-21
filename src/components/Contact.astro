@@ -1,0 +1,12 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+import { contact } from '../translate/contact';
+import Maps from './Maps.astro';
+const text = lang === 'es' ? contact.es : contact.en;
+---
+
+<p>{JSON.stringify(text)}</p>

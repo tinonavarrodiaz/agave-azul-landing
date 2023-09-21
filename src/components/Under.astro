@@ -1,0 +1,33 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+import Image2 from './Image2.astro';
+
+import { underLang } from '../translate/under';
+const text = lang === 'es' ? underLang.es : underLang.en;
+---
+
+<section class="Under pt-12 pb-14 md:pt-site-pt md:pb-site-pb">
+  <div class="grid-container w-container-2 mx-auto md:grid">
+    <div class="img">
+      <Image2 name="jimador" ext="jpg" />
+      <!-- <img src="/img/jimador.jpg" alt="" /> -->
+    </div>
+    <div class="text">
+      <h1
+        class="text-text-gray text-4xl md:text-[3.64vw] md:leading-[1.1em] text-center md:text-left mt-7 md:mt-0 mb-4 md:mb-[3.64vw]"
+      >
+        {text.title}
+      </h1>
+      <p class={`${lang === 'es' ? 'es' : ''} font-light text-justify`}>
+        {text.text}
+      </p>
+      <p class={`${lang === 'es' ? 'es' : ''} font-light text-justify`}>
+        {text.subtext}
+      </p>
+    </div>
+  </div>
+</section>
