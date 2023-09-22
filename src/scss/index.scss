@@ -9,6 +9,22 @@
 @import 'hamburgers/dist/hamburgers.min.css';
 @import 'aos/dist/aos.css';
 
+:root {
+  scroll-behavior: smooth;
+  --header-height: 100px;
+  @media (width<1024px) {
+    --header-height: 140px;
+  }
+}
+#logo {
+  cursor: pointer;
+}
+section:target {
+  scroll-margin-top: calc(var(--header-height) + 4em);
+  @media (width<1024px) {
+    scroll-margin-top: calc(var(--header-height));
+  }
+}
 @layer base {
   body {
     @apply w-screen max-w-[calc(100vw-var(--scrollbarWidth))] overflow-y-auto overflow-x-hidden font-trueno;

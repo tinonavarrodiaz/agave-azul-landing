@@ -8,7 +8,7 @@ import { headerLang } from '../translate/header';
 const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
 ---
 
-<header class="bg-bg relative">
+<header class="bg-bg top-0 w-full sticky z-[200]">
   <div
     class="flags absolute right-8 top-2 md:top-4 gap-x-3 flex items-center scale-75 md:scale-100"
   >
@@ -30,6 +30,7 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
       src="/logo.svg"
       alt="Logo Destiladora Agave Azul"
       class="w-[60%] max-w-[200px] md:w-[40%] md:max-w-none lg:w-logo"
+      id="logo"
     />
     <nav>
       <button class={`hamburger hamburger--squeeze lg:hidden `} type="button">
@@ -50,14 +51,30 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
   </div>
 </header>
 <script>
-  const toggleBtn = document.querySelector('.hamburger');
+  const toggleBtn: any = document.querySelector('.hamburger');
+  const links = [...document.querySelectorAll('.main-menu a')];
+  const logo = document.getElementById('logo');
   let context = 1920;
   let alto = 190;
   let res = (alto * 100) / context;
   console.log(res);
   // 200*100/1920
-  toggleBtn?.addEventListener('click', (e) => {
+  toggleBtn?.addEventListener('click', (e: any) => {
     toggleBtn.classList.toggle('is-active');
     document.getElementById('main-menu')?.classList.toggle('is-active');
+  });
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      toggleBtn.click();
+    });
+  });
+  logo?.addEventListener('click', (e: any) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+    window.location.hash = '';
   });
 </script>
