@@ -156,7 +156,11 @@
       }
     }
     textarea {
-      @apply h-[100px] lg:h-[10.020vw] resize-none;
+      @apply h-[100px] lg:h-[10.020vw] resize-none px-4 py-4;
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
     }
   }
   .Adresses {
@@ -170,6 +174,12 @@
     ul,
     a {
       @apply block w-6 lg:w-[1.822vw];
+    }
+  }
+  .modal-loading {
+    @apply fixed top-0 left-0 w-screen h-screen bg-[rgba(255,255,255,.3)] flex items-center justify-center;
+    img {
+      @apply block w-32 h-auto;
     }
   }
 }

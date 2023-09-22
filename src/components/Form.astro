@@ -9,7 +9,11 @@ interface Props {
 const { name, email, message, send } = Astro.props;
 ---
 
-<form action="" id="form" class="Form mt-6 md:mt-[2.34375vw]">
+<form
+  action="https://laquintaplumbingsolutions.com/test/email.php"
+  id="form"
+  class="Form mt-6 md:mt-[2.34375vw]"
+>
   <div class="lg:grid grid-cols-2 lg:mb-[1.614vw] gap-x-[1.614vw]">
     <div class="input-group mb-6 lg:mb-0">
       <label class="mb-4 lg:mbg-[0.9375vw]" for="name">{name}:</label>
@@ -25,10 +29,43 @@ const { name, email, message, send } = Astro.props;
     <textarea name="msg" id="msg" required></textarea>
   </div>
   <div class="flex justify-end mt-4 text-[#5F6D76] items-end">
-    <button type="submit">{send}</button>
+    <button
+      type="submit"
+      class="hover:scale-105 transition-transform duration-200 origin-right"
+      >{send}</button
+    >
   </div>
 </form>
 <script>
+  import { Report } from 'notiflix/build/notiflix-report-aio';
   const form = document.getElementById('form');
-  form?.addEventListener('submit', async (e) => {});
+  form?.addEventListener('submit', async (e: any) => {
+    e.preventDefault();
+    //@ts-ignore
+    const dataForm = new URLSearchParams(new FormData(e.target));
+    console.log(dataForm);
+    const modal = document.createElement('div');
+    modal.className = 'modal-loading';
+    modal.innerHTML = '<img src="/loading.svg" class="immg-liading">';
+    document.body.insertAdjacentElement('beforeend', modal);
+    try {
+      const res = await fetch(e.target.action, {
+        method: 'POST',
+        body: dataForm,
+      });
+      const data = await res.json();
+      if (res.status !== 200) {
+        //@ts-ignore
+        const miExcepcionUsuario = new ExceptionUsuario(data.msg);
+        throw miExcepcionUsuario;
+      }
+      Report.success('Send Success', data.msg, 'Ok');
+    } catch (err) {
+      console.log(err);
+      //@ts-ignore
+      Report.failure('Send Failure', err, 'Ok');
+    } finally {
+      modal.remove();
+    }
+  });
 </script>

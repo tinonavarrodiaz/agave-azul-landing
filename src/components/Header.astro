@@ -10,6 +10,20 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
 
 <header class="bg-bg relative">
   <div
+    class="flags absolute right-8 top-2 md:top-4 gap-x-3 flex items-center scale-75 md:scale-100"
+  >
+    <a class={`block w-4 h-auto ${lang === 'en' ? 'scale-125' : ''}`} href="/">
+      <img src="/us.svg" alt="us flag" />
+    </a>
+    <span class="block opacity-50">|</span>
+    <a
+      class={`block w-4 h-auto ${lang === 'es' ? 'scale-125' : ''}`}
+      href="/es"
+    >
+      <img class="block" src="/es.svg" alt="sp flag" />
+    </a>
+  </div>
+  <div
     class="flex justify-between items-center h-[100px] md:h-[140px] lg:h-header-height w-container mx-auto"
   >
     <img
