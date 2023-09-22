@@ -137,4 +137,42 @@
       }
     }
   }
+  .input-group {
+    @apply mb-4 lg:mb-0;
+    label,
+    input,
+    textarea {
+      @apply w-full block text-[#5F6D76] font-light;
+    }
+    input,
+    textarea {
+      @apply border border-[#5F6D76];
+    }
+    input {
+      @apply leading-8 px-4 lg:leading-[3.020vw];
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    textarea {
+      @apply h-[100px] lg:h-[10.020vw] resize-none;
+    }
+  }
+  .Adresses {
+    h3,
+    p {
+      @apply text-sm md:text-[0.9375vw];
+    }
+  }
+  ul.social {
+    @apply flex gap-x-4;
+    ul,
+    a {
+      @apply block w-6 lg:w-[1.822vw];
+    }
+  }
+}
+.contact_img {
+  clip-path: polygon();
 }

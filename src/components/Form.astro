@@ -1,0 +1,34 @@
+---
+interface Props {
+  name: string;
+  email: string;
+  message: string;
+  send: string;
+}
+
+const { name, email, message, send } = Astro.props;
+---
+
+<form action="" id="form" class="Form mt-6 md:mt-[2.34375vw]">
+  <div class="lg:grid grid-cols-2 lg:mb-[1.614vw] gap-x-[1.614vw]">
+    <div class="input-group mb-6 lg:mb-0">
+      <label class="mb-4 lg:mbg-[0.9375vw]" for="name">{name}:</label>
+      <input type="text" name="name" id="name" required />
+    </div>
+    <div class="input-group mb-6 lg:mb-0">
+      <label class="mb-4 lg:mbg-[0.9375vw]" for="email">{email}:</label>
+      <input type="email" name="email" id="email" required />
+    </div>
+  </div>
+  <div class="input-group">
+    <label class="mb-4 lg:mbg-[0.9375vw]" for="msg">{message}:</label>
+    <textarea name="msg" id="msg" required></textarea>
+  </div>
+  <div class="flex justify-end mt-4 text-[#5F6D76] items-end">
+    <button type="submit">{send}</button>
+  </div>
+</form>
+<script>
+  const form = document.getElementById('form');
+  form?.addEventListener('submit', async (e) => {});
+</script>

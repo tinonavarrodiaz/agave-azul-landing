@@ -1,11 +1,11 @@
 export const contact = {
   en: {
-    title: 'Contact us',
-    subTitle:
-      'Discover why more brands are becoming part of our clients list!.',
+    title: 'Contact',
+    titleSpan: 'us',
+    subTitle: 'Discover why more brands are becoming part of our clients list!',
     inputs: {
       name: 'Name',
-      emai: 'Email',
+      email: 'Email',
       message: 'Message',
       send: 'Send',
     },
@@ -13,12 +13,13 @@ export const contact = {
     distillery: 'DISTILLERY',
   },
   es: {
-    title: 'Contacta con nosotros',
+    title: 'Contacta con',
+    titleSpan: 'nosotros',
     subTitle:
-      '¡Descubre por qué cada vez más marcas están pasando a formar parte de nuestra lista de clientes!.',
+      '¡Descubre por qué cada vez más marcas están pasando a formar parte de nuestra lista de clientes!',
     inputs: {
       name: 'Nombre',
-      emai: 'Email',
+      email: 'Email',
       message: 'Mensaje',
       send: 'Enviar',
     },
