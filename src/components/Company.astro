@@ -8,10 +8,12 @@ import { text } from '../translate/company';
 const company = lang === 'es' ? text.es : text.en;
 ---
 
-<div class="company bg-[#EFECE3] pt-9 pb-9 md:pt-[7.1875vw] md:pb-[7.5vw]">
+<div
+  class="company pt-12 md:text-[2.1354vw] pb-12 md:pb-4 md:pt-0 md:h-[22.5390625vw] md:flex items-center bg-[#EFECE3]"
+>
+  <!--pt-9 pb-9 md:pt-[7.1875vw] md:pb-[7.4vw]">-->
   <p
+    set:html={company.text}
     class="w-container-2 mx-auto text-center font-light leading-[1.5em] md:text-[2vw] text-[#666]"
-  >
-    {company.text}
-  </p>
+  />
 </div>

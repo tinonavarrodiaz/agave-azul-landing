@@ -10,20 +10,20 @@ const text = lang === 'es' ? sheets.es : sheets.en;
 
 <section class="Tequilas" id="our-tequilas">
   <h2
-    class="text-center text-2xl md:text-[3.64vw] md:mb-[4.89vw] text-[#969696] mb-12"
+    class="text-center text-title-xs md:text-title text-[#969696] mb-8 lg:mb-[5.520833333333333vw] tracking-[10px]"
   >
     {text.title}
   </h2>
-  <div class="w-container-2 mx-auto md:grid grid-cols-3">
+  <div class="Tequilas__grid container3 mx-auto">
     {
-      tequilas.map((item) => (
-        <div class="item mb-10 last:mb-0 md:flex flex-col justify-end md:mb-0">
+      tequilas.map((item, index) => (
+        <div class={`item item-${index}`}>
           <img
             class="mb-[20px]"
             src={`/img/${item.src}.png`}
             alt={`Tequila ${item.name}`}
           />
-          <h3 class="font-Kohinoor font-bold text-md uppercase text-center leading-4 text-[1.02em] tracking-wide text-text-gray mb-0 md:text-[1.5vw] md:leading-7">
+          <h3 class="font-Kohinoor font-bold uppercase text-center text-xl md:text-[1.927vw] leading-[1em] text-[#868686]">
             Tequila <br />
             {item.name}
           </h3>

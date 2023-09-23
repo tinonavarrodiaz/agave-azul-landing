@@ -5,10 +5,11 @@ interface Props {
 const { lang } = Astro.props;
 
 import { headerLang } from '../translate/header';
+import Down from './Down.astro';
 const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
 ---
 
-<header class="bg-bg top-0 w-full sticky z-[200]">
+<header class="Header bg-[var(--header-color)] top-0 w-full sticky z-[500]">
   <div
     class="flags absolute right-8 top-2 md:top-4 gap-x-3 flex items-center scale-75 md:scale-100"
   >
@@ -24,7 +25,7 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
     </a>
   </div>
   <div
-    class="flex justify-between items-center h-[100px] md:h-[140px] lg:h-header-height w-container mx-auto"
+    class="flex justify-between items-center h-[var(--header-height)] w-container mx-auto"
   >
     <img
       src="/logo.svg"
@@ -54,11 +55,11 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
   const toggleBtn: any = document.querySelector('.hamburger');
   const links = [...document.querySelectorAll('.main-menu a')];
   const logo = document.getElementById('logo');
-  let context = 1920;
-  let alto = 190;
-  let res = (alto * 100) / context;
-  console.log(res);
-  // 200*100/1920
+  const header = document.querySelector('.Header');
+  // let context = 1920;
+  // let alto = 190;
+  // let res = (alto * 100) / context;
+  // // 200*100/1920
   toggleBtn?.addEventListener('click', (e: any) => {
     toggleBtn.classList.toggle('is-active');
     document.getElementById('main-menu')?.classList.toggle('is-active');
@@ -76,5 +77,24 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
       behavior: 'smooth',
     });
     window.location.hash = '';
+  });
+  let headerHeight: any = document.querySelector('.Header')?.clientHeight;
+  window.addEventListener('scroll', (e) => {
+    let scroll = window.scrollY;
+    console.log(window.scrollY, headerHeight);
+    if (scroll >= headerHeight) {
+      console.log(scroll, headerHeight);
+      header?.classList.add('white');
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${headerHeight * 0.75}px`
+      );
+    } else {
+      header?.classList.remove('white');
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${headerHeight}px`
+      );
+    }
   });
 </script>

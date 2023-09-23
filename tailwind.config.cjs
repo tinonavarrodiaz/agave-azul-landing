@@ -23,8 +23,9 @@ module.exports = {
 
         container: '90%',
         'container-2': '85%',
+        container3: '87%',
         'site-pt': '9.375vw',
-        'site-pb': '11.45vw',
+        'site-pb': '11.14583333333333vw',
         'header-height': '9.90vw',
         'p-lg': '3.489583333333333vw',
       },
@@ -32,6 +33,20 @@ module.exports = {
         landscapexs: 'landascape',
       },
       fontSize: {
+        'title-xs': [
+          '1.5rem',
+          {
+            letterSpacing: '3px',
+            lineHeight: '.7em',
+          },
+        ],
+        title: [
+          '3.645833333333333vw',
+          {
+            letterSpacing: '7px',
+            lineHeight: '.7em',
+          },
+        ],
         xsm: [
           '.8rem',
           {

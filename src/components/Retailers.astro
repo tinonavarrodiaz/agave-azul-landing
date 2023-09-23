@@ -1,0 +1,27 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+import { find } from '../translate/find';
+import Maps from './Maps.astro';
+const text = lang === 'es' ? find.es : find.en;
+---
+
+<section class="Retrailers pt-12 md:pt-[11.14583333333333vw]" id="where-to-buy">
+  <h2
+    class="text-center text-2xl md:text-[3.64vw] mb-2 text-[#969696] tracking-[10px] leading-[1em]"
+    id="where-to-buy"
+  >
+    {text.title}
+  </h2>
+  <h3
+    class="text-center text-xl md:text-[2.1vw] mt-[5px] leading-[1em] text-[#414042] mb-12 md:mb-5.208333333333333vw] text-light"
+  >
+    {text.subTitle}
+  </h3>
+  <div class="map bg-slate-200">
+    <Maps />
+  </div>
+</section>

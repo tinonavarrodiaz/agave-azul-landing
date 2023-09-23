@@ -12,25 +12,48 @@
 :root {
   scroll-behavior: smooth;
   --header-height: 100px;
-  @media (width<1024px) {
-    --header-height: 140px;
+
+  --header-color: #f6ecdf;
+  @media (min-width: 1024px) {
+    --header-height: 10vw;
   }
 }
 #logo {
   cursor: pointer;
 }
-section:target {
+.Header.white {
+  --header-color: #fff;
+}
+#our-tequilas:target {
   scroll-margin-top: calc(var(--header-height) + 4em);
   @media (width<1024px) {
     scroll-margin-top: calc(var(--header-height));
   }
 }
+// section:target,
+// h2:target {
+// }
 @layer base {
   body {
     @apply w-screen max-w-[calc(100vw-var(--scrollbarWidth))] overflow-y-auto overflow-x-hidden font-trueno;
   }
 }
 @layer components {
+  .Hero {
+    background-image: linear-gradient(
+      #f6ecdf 88.4861407249467%,
+      #fff 88.4861407249467%
+    );
+    &__container {
+      @apply lg:h-[49vw];
+      img {
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+      }
+    }
+  }
   .hamburger {
     @apply scale-75 translate-y-1 md:scale-100;
     &:hover,
@@ -53,7 +76,7 @@ section:target {
     }
   }
   .main-menu {
-    @apply bg-bg text-header-text w-full absolute top-[100px] md:top-[140px] left-0 max-h-0 overflow-hidden transition-[max-height] duration-200 lg:static lg:flex lg:max-h-none;
+    @apply bg-[var(--header-color)] text-header-text w-full absolute top-[100px] md:top-[140px] left-0 max-h-0 overflow-hidden transition-[max-height] duration-200 lg:static lg:flex lg:max-h-none;
     a {
       @apply leading-12 px-6 block;
     }
@@ -72,15 +95,22 @@ section:target {
         }
       }
       p {
-        @apply md:text-[1.3vw];
+        @apply md:text-[1.356vw];
       }
       p.es {
         @apply md:text-[1.2vw];
       }
     }
   }
+  .company {
+    br {
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
   .Banner {
-    @apply w-container-2 mx-auto pt-[4em] pb-[5em] md:pt-[6.25vw] md:pb-[10vw] md:grid grid-cols-3 gap-x-[2.083vw];
+    @apply w-container-2 mx-auto pt-[4em] pb-[5em] md:pt-[6.25vw] md:pb-[15.625vw] md:grid grid-cols-3 gap-x-[2.083vw];
     img,
     picture {
       @apply w-full block mb-8 md:mb-0;
@@ -92,22 +122,23 @@ section:target {
   }
 
   .Tequilas {
-    @apply pb-[30px] md:pb-[0.8645vw];
-    background: linear-gradient(transparent 40%, #efefef 40%);
-    img,
-    a {
-      @apply block;
+    @apply lg:h-[59.79166666666667vw] lg:max-h-[59.79166666666667vw] pb-9 md:pb-0;
+    background-image: linear-gradient(#fff 40%, #efefef 40%);
+    @media (min-width: 768px) {
+      background-image: linear-gradient(#fff 45%, #efefef 45%);
     }
-    .item {
-      &:first-child,
-      &:last-child {
-        img {
-          @apply w-[33%] h-auto;
-        }
+
+    &__grid {
+      @apply md:grid grid-cols-3 items-end;
+      img {
+        @apply block mx-auto h-[200px] md:h-[25vw] w-auto;
       }
-    }
-    .item img {
-      @apply max-w-[70%] h-auto mx-auto;
+      .item {
+        @apply mb-8 md:mb-0;
+      }
+      .item-1 img {
+        @apply block h-[150px] md:h-[20.57vw];
+      }
     }
   }
   .footer-tequila {
