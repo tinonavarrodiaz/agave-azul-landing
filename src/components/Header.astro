@@ -5,12 +5,14 @@ interface Props {
 const { lang } = Astro.props;
 
 import { headerLang } from '../translate/header';
+import ChageLenguage from './ChageLenguage.astro';
 import Down from './Down.astro';
 const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
 ---
 
 <header class="Header bg-[var(--header-color)] top-0 w-full sticky z-[500]">
-  <div
+  <ChageLenguage lang={lang} />
+  <!-- <div
     class="flags absolute right-8 top-2 md:top-4 gap-x-3 flex items-center scale-75 md:scale-100"
   >
     <a class={`block w-4 h-auto ${lang === 'en' ? 'scale-125' : ''}`} href="/">
@@ -23,7 +25,7 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
     >
       <img class="block" src="/es.svg" alt="sp flag" />
     </a>
-  </div>
+  </div> -->
   <div
     class="flex justify-between items-center h-[var(--header-height)] w-container mx-auto"
   >
@@ -47,6 +49,21 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
             </li>
           ))
         }
+        <li class="md:hidden uppercase">
+          {
+            lang === 'es' ? (
+              <a href="/" class="item-flag">
+                <img class="block w-4 h-auto mt-4" src="/us.svg" alt="" />
+                English
+              </a>
+            ) : (
+              <a href="/es" class="item-flag">
+                <img class="block w-4 h-auto mt-4" src="/es.svg" alt="" />
+                Español
+              </a>
+            )
+          }
+        </li>
       </ul>
     </nav>
   </div>

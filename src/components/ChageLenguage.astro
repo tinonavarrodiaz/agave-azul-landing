@@ -1,0 +1,36 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+---
+
+<aside
+  class="lenguage absolute w-auto h-auto top-4 right-[4.895833333333333vw] origin-center scale-90 hidden sd:block"
+>
+  <div class="ui-switch-container">
+    <label class="ui-switch flex gap-x-3">
+      <span>English</span>
+      {
+        lang === 'es' ? (
+          <input type="checkbox" id="input" checked />
+        ) : (
+          <input type="checkbox" id="input" />
+        )
+      }
+
+      <div class="slider">
+        <div class="circle"></div>
+      </div>
+      <span>Español</span>
+    </label>
+  </div>
+</aside>
+
+<script>
+  const input: any = document.getElementById('input');
+  console.dir(input.checked);
+  input.addEventListener('change', (e: any) => [
+    e.target.checked ? (location.href = '/es') : (location.href = '/'),
+  ]);
+</script>

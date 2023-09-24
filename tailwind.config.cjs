@@ -37,9 +37,10 @@ module.exports = {
           '1.5rem',
           {
             letterSpacing: '3px',
-            lineHeight: '.7em',
+            lineHeight: '1.2em',
           },
         ],
+        'title-sm': [],
         title: [
           '3.645833333333333vw',
           {
