@@ -52,3 +52,16 @@ const currentLang = lang === 'es' ? language.es : language.en;
     </script>
   </body>
 </html>
+<script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script is:inline>
+// if (!isMobile()) {
+AOS.init({
+  startEvent: 'load',
+  easing: 'ease-out-back',
+  duration: 850,
+  // startEvent: 'DOMContentLoaded',
+  useClassNames: true,
+  // once: true,
+});
+// }
+</script>

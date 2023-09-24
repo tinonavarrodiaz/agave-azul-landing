@@ -29,8 +29,9 @@ const text = lang === 'es' ? contact.es : contact.en;
       src="/img/san-juanito.jpg"
       alt="San Juanito de Escobedo"
       class="contact_img block w-[100%] h-[100%] object-cover object-center"
+      data-aos="fade-right"
     />
-    <div class="flex flex-col">
+    <div class="flex flex-col" data-aos="fade-left">
       <Form
         name={text.inputs.name}
         email={text.inputs.email}

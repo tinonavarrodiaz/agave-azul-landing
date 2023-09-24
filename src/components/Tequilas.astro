@@ -17,7 +17,11 @@ const text = lang === 'es' ? sheets.es : sheets.en;
   <div class="Tequilas__grid container3 mx-auto">
     {
       tequilas.map((item, index) => (
-        <div class={`item item-${index}`}>
+        <div
+          class={`item item-${index}`}
+          data-aos="fade-up"
+          data-aos-delay={`${index * 150}`}
+        >
           <img
             class="mb-[20px]"
             src={`/img/${item.src}.png`}

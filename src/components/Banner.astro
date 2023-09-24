@@ -3,7 +3,13 @@ import Image2 from './Image2.astro';
 ---
 
 <div class="Banner">
-  <Image2 name="botella" ext="jpg" />
-  <Image2 name="tanques" ext="jpg" />
-  <Image2 name="agave" ext="jpg" />
+  <div data-aos="flip-left">
+    <Image2 name="botella" ext="jpg" />
+  </div>
+  <div data-aos="flip-left" data-aos-delay="100">
+    <Image2 name="tanques" ext="jpg" />
+  </div>
+  <div data-aos="flip-left" data-aos-delay="200">
+    <Image2 name="agave" ext="jpg" />
+  </div>
 </div>
