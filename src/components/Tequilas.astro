@@ -23,11 +23,11 @@ const text = lang === 'es' ? sheets.es : sheets.en;
           data-aos-delay={`${index * 150}`}
         >
           <img
-            class="mb-[20px]"
+            class="mb-[25px]"
             src={`/img/${item.src}.png`}
             alt={`Tequila ${item.name}`}
           />
-          <h3 class="font-Kohinoor font-bold uppercase text-center text-xl md:text-[1.927vw] leading-[1em] text-[#868686]">
+          <h3 class="font-Kohinoor font-bold uppercase text-center text-xl md:text-[1.927vw] leading-[.9em] text-[#868686] tracking-[0.1em]">
             Tequila <br />
             {item.name}
           </h3>
@@ -39,7 +39,7 @@ const text = lang === 'es' ? sheets.es : sheets.en;
                 alt={item.name}
               />
             </a>
-            <a href={item.instagram} target="_blank">
+            <a href={item.instagram} class="bt-instagram" target="_blank">
               <img class="btn-icon" src="/img/instagram.svg" alt="" />
             </a>
           </div>
@@ -47,7 +47,7 @@ const text = lang === 'es' ? sheets.es : sheets.en;
       ))
     }
   </div>
-  <div class="footer-tequila">
+  <div class="footer-tequila max-w-[100vw] w-full absolute">
     <div class="icon-container c-left">
       <img
         src="/img/ara-sello.svg"

@@ -19,7 +19,7 @@ const currentLang = lang === 'es' ? language.es : language.en;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="/aos.css" media="(min-width:1024px)" />
+    <!-- <link rel="stylesheet" href="/aos.css" media="(min-width:1024px)" /> -->
     <title>{title}</title>
     <meta property="og:title" content="Destiladora Agave Azul" />
     <meta property="og:description" content={currentLang.head.description} />
@@ -56,7 +56,7 @@ const currentLang = lang === 'es' ? language.es : language.en;
     </script>
   </body>
 </html>
-<script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!-- <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script is:inline>
 // alert(window.matchMedia('(min-width: 1024px)').matches);
 if (window.matchMedia('(min-width: 1024px)').matches) {
@@ -71,5 +71,4 @@ if (window.matchMedia('(min-width: 1024px)').matches) {
     disable: 'phone',
   });
   //   alert('entra');
-}
-</script>
+} -->
