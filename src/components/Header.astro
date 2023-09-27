@@ -98,9 +98,7 @@ const menu = lang === 'es' ? headerLang.menuEs : headerLang.menuEn;
   let headerHeight: any = document.querySelector('.Header')?.clientHeight;
   window.addEventListener('scroll', (e) => {
     let scroll = window.scrollY;
-    console.log(window.scrollY, headerHeight);
     if (scroll >= headerHeight) {
-      console.log(scroll, headerHeight);
       header?.classList.add('white');
       document.documentElement.style.setProperty(
         '--header-height',

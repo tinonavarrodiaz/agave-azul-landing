@@ -29,7 +29,6 @@ const { lang } = Astro.props;
 
 <script>
   const input: any = document.getElementById('input');
-  console.dir(input.checked);
   input.addEventListener('change', (e: any) => [
     e.target.checked ? (location.href = '/es') : (location.href = '/'),
   ]);

@@ -47,7 +47,7 @@ const text = lang === 'es' ? sheets.es : sheets.en;
       ))
     }
   </div>
-  <div class="footer-tequila max-w-[100vw] w-full absolute">
+  <div class="footer-tequila">
     <div class="icon-container c-left">
       <img
         src="/img/ara-sello.svg"
@@ -64,3 +64,13 @@ const text = lang === 'es' ? sheets.es : sheets.en;
     </div>
   </div>
 </section>
+<script>
+  const screenwidth = window.innerWidth;
+  const tequilasFooter: any = document.querySelector('.footer-tequila');
+  console.dir(tequilasFooter);
+  tequilasFooter.style.width = `${screenwidth * 0.9}px`;
+  tequilasFooter.style.marginLeft = `auto`;
+  tequilasFooter.style.marginRight = `auto`;
+  tequilasFooter.style.background = `red`;
+  // alert(screenwidth);
+</script>
